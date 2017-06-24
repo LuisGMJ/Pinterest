@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="well">
+        <h1><legend>Registrate Gratis</legend></h1>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
+
+          <div class="form-group">
+              <p class="text-warning"><%= f.label :email %></p><br />
+              <%= f.email_field :email, autofocus: true,
+                :class => 'form-control'%>
+          </div>
+            <div class="form-group">
+              <div>
+                <p class="text-warning"><%= f.label :phone %></p><br />
+                <%= f.text_field :phone, :class => 'form-control'%>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div>
+                <p class="text-warning"><%= f.label :password %></p>
+                <% if @minimum_password_length %>
+                    <p class="text-success"><em>(<%= @minimum_password_length %> characters minimum)</em></p>
+                <% end %><br />
+                <%= f.password_field :password, autocomplete: "off",
+                                     :class => 'form-control' %>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div>
+                <p class="text-warning"><%= f.label :password_confirmation %></p><br />
+                <%= f.password_field :password_confirmation, autocomplete: "off",
+                                     :class => 'form-control' %>
+              </div>
+            </div>
+
+          <div class="actions">
+            <%= f.submit "Registrarse", :class => "btn btn-primary"%>
+          </div>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
